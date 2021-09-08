@@ -1,0 +1,5 @@
+D:\Leo\Facultad\Trabajos\3º Año\Taller de Lenguajes II\TP3\ejerciciodeclase02-Leonel-H29\Ejercicio de Clase 2\obj\Debug\net5.0\Ejercicio de Clase 2.csprojAssemblyReference.cache
+D:\Leo\Facultad\Trabajos\3º Año\Taller de Lenguajes II\TP3\ejerciciodeclase02-Leonel-H29\Ejercicio de Clase 2\obj\Debug\net5.0\Ejercicio de Clase 2.GeneratedMSBuildEditorConfig.editorconfig
+D:\Leo\Facultad\Trabajos\3º Año\Taller de Lenguajes II\TP3\ejerciciodeclase02-Leonel-H29\Ejercicio de Clase 2\obj\Debug\net5.0\Ejercicio de Clase 2.AssemblyInfoInputs.cache
+D:\Leo\Facultad\Trabajos\3º Año\Taller de Lenguajes II\TP3\ejerciciodeclase02-Leonel-H29\Ejercicio de Clase 2\obj\Debug\net5.0\Ejercicio de Clase 2.AssemblyInfo.cs
+D:\Leo\Facultad\Trabajos\3º Año\Taller de Lenguajes II\TP3\ejerciciodeclase02-Leonel-H29\Ejercicio de Clase 2\obj\Debug\net5.0\Ejercicio de Clase 2.csproj.CoreCompileInputs.cache
