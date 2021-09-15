@@ -6,127 +6,104 @@ using System.Threading.Tasks;
 
 namespace Ejercicio_de_Clase_2
 {
-    public enum TipoDeExtraccion {CajeroHumano =1,CajeroAutomatico };
+    //Clase padre: Cuenta
     public class Cuenta
     {
-        int num;
+        public enum TipoDeExtraccion { CajeroHumano = 1, CajeroAutomatico };
+
+        private float cantidad;
         TipoDeExtraccion ext;
-        public Cuenta() {
-            this.num = 0;
+
+        public float Cantidad { get => cantidad; set => cantidad = value; }
+
+        public Cuenta() {}
+        
+        public void insercion(int monto) {
+            this.cantidad += monto;
         }
-        public Cuenta(int _num, TipoDeExtraccion extra) {
-            this.num = _num;
-            this.ext = extra;
-        }
-        public int insersion(int num) {
-            return 0;
-        }
-        public int extraccion(int num, TipoDeExtraccion extra) { return 0; }
+        public virtual void extraccion(int monto, TipoDeExtraccion extra) {}
     }
 
+    //Clase hija: Cuenta Corriente en Pesos
     public class Cta_Cte_Pesos : Cuenta {
 
-        public int insersion(int num)
+        public override void extraccion(int monto, TipoDeExtraccion tipo)
         {
-            return 0;
-        }
-        public int extraccion(int num, TipoDeExtraccion extra) { 
-           if(extra == CajeroHumano)
+            switch (tipo)
             {
-                if(num >= 20000)
-                {
-                    Console.WriteLine(@"Se extrajo {num}");
-                    return num;
-                }
-                else {
-                    Console.WriteLine(@"No puede extraer ese dinero");
-                    return 0;
-                }
-            }
-            else {
-                if (num >= 20000)
-                {
-                    Console.WriteLine(@"Se extrajo {num}");
-                    return num;
-                }
-                else
-                {
-                    Console.WriteLine(@"No puede extraer ese dinero");
-                    return 0;
-                }
+                case TipoDeExtraccion.CajeroAutomatico:
+
+                    if ((this.Cantidad - monto) < -5000)
+                    {
+                        Console.WriteLine("no se puede extraer, la cuenta quedaria con menos de -5000 pesos");
+                    }
+                    else
+                    {
+                        if (monto > 20000)
+                        {
+                            Console.WriteLine("No se puede extraer mas de 20k por cajero automatico, visite una caja");
+                        }
+                        else
+                        {
+                            this.Cantidad -= monto;
+                        }
+                    }
+                    break;
+
+                case TipoDeExtraccion.CajeroHumano:
+                    this.Cantidad -= monto;
+                    break;
             }
         }
     }
 
+    //Clase hija: Cuenta Corriente en Dolares
     public class Cta_Cte_Dolares : Cuenta {
-        public int insersion(int num)
+        public override void extraccion(int monto, TipoDeExtraccion tipo)
         {
-            return 0;
-        }
-        public int extraccion(int num, TipoDeExtraccion extra)
-        {
-            if (extra == CajeroHumano)
+            switch (tipo)
             {
-                if (num >= 20000)
-                {
-                    Console.WriteLine(@"Se extrajo {num}");
-                    return num;
-                }
-                else
-                {
-                    Console.WriteLine(@"No puede extraer ese dinero");
-                    return 0;
-                }
-            }
-            else
-            {
-                if (num >= 20000)
-                {
-                    Console.WriteLine(@"Se extrajo {num}");
-                    return num;
-                }
-                else
-                {
-                    Console.WriteLine(@"No puede extraer ese dinero");
-                    return 0;
-                }
+                case TipoDeExtraccion.CajeroAutomatico:
+
+                    if (monto > 200)
+                    {
+                        Console.WriteLine("No se puede extraer mas de 200 dolares por cajero automatico, visite una caja");
+                    }
+                    else
+                    {
+                        this.Cantidad -= monto;
+                    }
+                    break;
+
+                case TipoDeExtraccion.CajeroHumano:
+                    this.Cantidad -= monto;
+                    break;
             }
         }
 
     }
 
+    //Clase hija: Caja de Ahorros en Pesos
     public class Caja_Ahorro_Pesos : Cuenta {
-        public int insersion(int num)
+        public override void extraccion(int monto, TipoDeExtraccion tipo)
         {
-            return 0;
-        }
-        public int extraccion(int num, TipoDeExtraccion extra)
-        {
-            if (extra == CajeroHumano)
+            switch (tipo)
             {
-                if (num >= 20000)
-                {
-                    Console.WriteLine(@"Se extrajo {num}");
-                    return num;
-                }
-                else
-                {
-                    Console.WriteLine(@"No puede extraer ese dinero");
-                    return 0;
-                }
-            }
-            else
-            {
-                if (num >= 20000)
-                {
-                    Console.WriteLine(@"Se extrajo {num}");
-                    return num;
-                }
-                else
-                {
-                    Console.WriteLine(@"No puede extraer ese dinero");
-                    return 0;
-                }
+                case TipoDeExtraccion.CajeroAutomatico:
+
+                    if (monto > 10000)
+                    {
+                        Console.WriteLine("No se puede extraer mas de 10k por cajero automatico, visite una caja");
+                    }
+                    else
+                    {
+                        this.Cantidad -= monto;
+                    }
+                    break;
+
+                case TipoDeExtraccion.CajeroHumano:
+                    this.Cantidad -= monto;
+                    break;
             }
         }
     }
